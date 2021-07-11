@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class Main_ball_SceneScript : MonoBehaviour
 {
-    bool f = true;
-    Vector3 cv = new Vector3(0f, 3f, -15f);
+    bool f = true; // キーの連続入力対策フラグ
+    Vector3 cv = new Vector3(0f, 3f, -15f); // カメラ位置用(オブジェクトに加算)
     Rigidbody rb = null;
     GameObject ex = null;
-    float dt = 1.0f;
+
+    float dt = 1.0f; // 爆破開始速度
+
+    Color[] cdata = {
+        Color.white, Color.black, Color.gray,
+        Color.red, Color.green, Color.blue,
+        Color.cyan, Color.magenta, Color.yellow,
+        new Color(1f, 1f, 0f, 1f)
+    };
+    System.Random r = new System.Random();
+
+    Dictionary<string, int> data = new Dictionary<string, int>(); // 辞書
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -18,8 +29,8 @@ public class Main_ball_SceneScript : MonoBehaviour
     void Update()
     {
         var sv = transform.position;
-        sv.y = 1f;
-        Camera.main.transform.position = sv + cv;
+        sv.y = 1f; // カメラ位置 Y軸固定用
+        Camera.main.transform.position = sv + cv; // カメラ位置
 
         var x = Input.GetAxis("Horizontal");
         var y = Input.GetAxis("Vertical");
@@ -44,83 +55,6 @@ public class Main_ball_SceneScript : MonoBehaviour
         rb.AddForce(v + vz);
     }
 
-    // ■ otherタグのボール衝突時対象消去
-    // void OnCollisionEnter(Collision collision)
-    // {
-    //     if (collision.gameObject.tag == "Other")
-    //     {
-    //         GameObject.Destroy(collision.gameObject);
-    //     }
-    // }
-
-    // ■ otherタグのボール接触時対象色変更
-    /* 設定
-    1. トリガーにするにチェックを入れる
-    2. マテリアルの Rendering Mode を Transparent へ変更する
-    */
-    // void OnTriggerEnter(Collider collider)
-    // {
-    //     if (collider.gameObject.tag == "Other")
-    //     {
-    //         var r = collider.gameObject.GetComponent<Renderer>();
-    //         r.material.color = new Color(0f, 0f, 0f, 0.25f);
-    //         r.material.SetFloat("_Metallic", 0f);
-    //     }
-    // }
-
-    // ■ otherタグのボール接触時ハローON
-    /* 設定
-    1. コンポーネント⇒エフェクト⇒ハローを選択
-    2. インスペクター Halo のチェックボックスOFF
-    */
-    // void OnTriggerEnter(Collider collider)
-    // {
-    //     if (collider.gameObject.tag == "Other")
-    //     {
-    //         var h = (Behaviour)collider.gameObject.GetComponent("Halo");
-    //         h.enabled = true;
-    //     }
-    // }
-
-    //     void OnTriggerExit(Collider collider)
-    // {
-    //     if (collider.gameObject.tag == "Other")
-    //     {
-    //         var h = (Behaviour)collider.gameObject.GetComponent("Halo");
-    //         h.enabled = false;
-    //     }
-    // }
-
-    // ■ otherタグのボール接触時パーティクルON
-    /* 設定
-    1. コンポーネント⇒エフェクト⇒パーティクルを選択
-    2. インスペクターからパーティクルを設定
-    */
-    // void OnTriggerEnter(Collider collider)
-    // {
-    //     if (collider.gameObject.tag == "Other")
-    //     {
-    //         var ps = collider.gameObject.GetComponent<ParticleSystem>();
-    //         ps.Play();
-    //     }
-    // }
-
-        // ■ otherタグのボール接触時エミット放出
-    /* 設定
-    1. 形状は半球
-    */
-    // void OnTriggerEnter(Collider collider)
-    // {
-    //     if (collider.gameObject.tag == "Other")
-    //     {
-    //         var ps = collider.gameObject.GetComponent<ParticleSystem>();
-    //         var ep = new ParticleSystem.EmitParams();
-    //         ep.startColor = Color.yellow;
-    //         ep.startSize = 0.1f;
-    //         ps.Emit(ep, 1000);
-    //     }
-    // }
-
     // ■ otherタグのボール接触時爆発
     /* 設定
     1. ループ、ゲーム開始時に再生のチェックを外す
@@ -129,13 +63,30 @@ public class Main_ball_SceneScript : MonoBehaviour
     {
         if (collider.gameObject.tag == "Other")
         {
+            // 爆発
             var go = collider.gameObject;
             ex.transform.position = go.transform.position;
             var main = ex.GetComponent<ParticleSystem>().main;
             main.startSpeed = dt;
             dt /= 2;
             ex.GetComponent<ParticleSystem>().Play();
-            GameObject.Destroy(go);
+            
+            var data = collider.gameObject.GetComponent<OtherData>();
+            data.AddValue();
+            data.Color = cdata[r.Next(10)];
+            ChangeOther(collider.gameObject);
         }
+    }
+
+    // GameObjectの表示を更新
+    void ChangeOther(GameObject ob)
+    {
+        var data = ob.GetComponent<OtherData>();
+        var rd = ob.GetComponent<Renderer>();
+        var d = 1.0f - data.value * 0.1f;
+        var c = data.Color;
+        c.a = d;
+        rd.material.color = c;
+        rd.material.SetFloat("_Metallic", d);
     }
 }

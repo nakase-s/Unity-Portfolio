@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
       propertyPath: m_LocalScale.x
@@ -387,7 +387,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &292873550
 MonoBehaviour:
@@ -432,8 +432,9 @@ GameObject:
   - component: {fileID: 297008371}
   - component: {fileID: 297008373}
   - component: {fileID: 297008372}
+  - component: {fileID: 297008374}
   m_Layer: 0
-  m_Name: OtherSphere (3)
+  m_Name: OtherSphere 2
   m_TagString: Other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -513,7 +514,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!122 &297008371
 Halo:
@@ -5299,6 +5300,18 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &297008374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297008366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff52e78f50dba14e9a661e3bf13de43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &487059640
 GameObject:
   m_ObjectHideFlags: 0
@@ -5314,8 +5327,9 @@ GameObject:
   - component: {fileID: 487059645}
   - component: {fileID: 487059647}
   - component: {fileID: 487059646}
+  - component: {fileID: 487059648}
   m_Layer: 0
-  m_Name: OtherSphere (2)
+  m_Name: OtherSphere 1
   m_TagString: Other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5395,7 +5409,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!122 &487059645
 Halo:
@@ -10181,6 +10195,18 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &487059648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487059640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff52e78f50dba14e9a661e3bf13de43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -10272,7 +10298,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -10451,7 +10477,7 @@ Transform:
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1465383871
 GameObject:
@@ -10468,8 +10494,9 @@ GameObject:
   - component: {fileID: 1465383876}
   - component: {fileID: 1465383878}
   - component: {fileID: 1465383877}
+  - component: {fileID: 1465383879}
   m_Layer: 0
-  m_Name: OtherSphere (1)
+  m_Name: OtherSphere 0
   m_TagString: Other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10549,7 +10576,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!122 &1465383876
 Halo:
@@ -15335,6 +15362,18 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &1465383879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465383871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff52e78f50dba14e9a661e3bf13de43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2110881640
 GameObject:
   m_ObjectHideFlags: 0
@@ -15350,8 +15389,9 @@ GameObject:
   - component: {fileID: 2110881645}
   - component: {fileID: 2110881647}
   - component: {fileID: 2110881646}
+  - component: {fileID: 2110881648}
   m_Layer: 0
-  m_Name: OtherSphere (4)
+  m_Name: OtherSphere 3
   m_TagString: Other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15431,7 +15471,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!122 &2110881645
 Halo:
@@ -20217,3 +20257,15 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &2110881648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110881640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff52e78f50dba14e9a661e3bf13de43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

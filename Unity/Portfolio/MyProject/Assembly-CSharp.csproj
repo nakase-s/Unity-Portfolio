@@ -37,21 +37,22 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\AllSkyFree\AllSkyFree_Menu.cs" />
-     <Compile Include="Assets\Main_ball_SceneScript.cs" />
-     <Compile Include="Assets\Shared\Ramps\Runtime\RampAsset.cs" />
      <Compile Include="Assets\Shared\Scripts\SimpleCharacterMotor.cs" />
-     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-     <Compile Include="Assets\Shared\Scripts\ProximityActivate.cs" />
-     <Compile Include="Assets\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
-     <Compile Include="Assets\Shared\Scripts\SimpleCameraController.cs" />
-     <Compile Include="Assets\Shared\Scripts\AdjustTimeScale.cs" />
      <Compile Include="Assets\Shared\Scripts\ExtinguishableFire.cs" />
-     <Compile Include="Assets\Shared\Scripts\DecalDestroyer.cs" />
-     <Compile Include="Assets\Shared\Scripts\ParticleCollision.cs" />
-     <Compile Include="Assets\Shared\Scripts\GunShoot.cs" />
-     <Compile Include="Assets\Shared\Scripts\GunAim.cs" />
-     <Compile Include="Assets\Shared\Scripts\ParticleExamples.cs" />
      <Compile Include="Assets\Shared\Scripts\ParticleMenu.cs" />
+     <Compile Include="Assets\Shared\Scripts\ProximityActivate.cs" />
+     <Compile Include="Assets\Shared\Scripts\DecalDestroyer.cs" />
+     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+     <Compile Include="Assets\Shared\Scripts\ParticleExamples.cs" />
+     <Compile Include="Assets\Shared\Scripts\AdjustTimeScale.cs" />
+     <Compile Include="Assets\Shared\Scripts\ParticleCollision.cs" />
+     <Compile Include="Assets\Shared\Ramps\Runtime\RampAsset.cs" />
+     <Compile Include="Assets\Shared\Scripts\GunShoot.cs" />
+     <Compile Include="Assets\Shared\Scripts\SimpleCameraController.cs" />
+     <Compile Include="Assets\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
+     <Compile Include="Assets\Main_ball_SceneScript.cs" />
+     <Compile Include="Assets\Shared\Scripts\GunAim.cs" />
+     <Compile Include="Assets\OtherData.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
@@ -654,6 +655,12 @@
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+        <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+        <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
         <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -669,6 +676,12 @@
     <Reference Include="Unity.TextMeshPro">
         <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+        <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
@@ -678,26 +691,14 @@
     <Reference Include="Unity.Rider.Editor">
         <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-        <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.ProGrids.Editor">
         <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UI">
+        <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProGrids">
         <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-        <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-        <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-        <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-        <HintPath>C:/Users/puppy/work/Unity/Portfolio/MyProject/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
