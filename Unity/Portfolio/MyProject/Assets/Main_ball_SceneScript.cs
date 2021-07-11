@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Main_ball_SceneScript : MonoBehaviour
 {
-    int n = 0;
     Vector3 cv = new Vector3(0f, 3f, -15f);
     Rigidbody rb = null;
     void Start()
@@ -17,28 +16,36 @@ public class Main_ball_SceneScript : MonoBehaviour
         var sv = transform.position;
         sv.y = 1f;
         Camera.main.transform.position = sv + cv;
+        
+        var mp = Input.mousePosition;
+        var x = (int)(mp.x / (Screen.width / 3));
+        var y = (int)(mp.y / (Screen.height / 3));
 
-        var v = Vector3.zero;
-        if (Input.GetKey(KeyCode.UpArrow))
+        var vx = Vector3.zero;
+        var vy = Vector3.zero;
+        var vz = Vector3.zero;
+        switch(x)
         {
-            v = new Vector3(0f, 0f, 1f);
+            case 0:
+            vx = new Vector3(-1f, 0f, 0f);
+            break;
+            case 2:
+            vx = new Vector3(1f, 0f, 0f);
+            break;
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        switch(y)
         {
-            v = new Vector3(0f, 0f, -1f);
+            case 0:
+            vy = new Vector3(0f, 0f, -1f);
+            break;
+            case 2:
+            vy = new Vector3(0f, 0f, 1f);
+            break;
         }
-         if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetMouseButtonDown(0))
         {
-            v = new Vector3(-1f, 0f, 0f);
+            vz = new Vector3(0f, 500f, 0f);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            v = new Vector3(1f, 0f, 0f);
-        }
-        if (Input.GetKey(KeyCode.Space))
-        {
-            v = new Vector3(0f, 5f, 0f);
-        }
-            rb.AddForce(v);
+        rb.AddForce(vx + vy + vz);
     }
 }
