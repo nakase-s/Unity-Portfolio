@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Main_ball_SceneScript : MonoBehaviour
 {
+    bool f = true;
     Vector3 cv = new Vector3(0f, 3f, -15f);
     Rigidbody rb = null;
     void Start()
@@ -16,36 +17,27 @@ public class Main_ball_SceneScript : MonoBehaviour
         var sv = transform.position;
         sv.y = 1f;
         Camera.main.transform.position = sv + cv;
-        
-        var mp = Input.mousePosition;
-        var x = (int)(mp.x / (Screen.width / 3));
-        var y = (int)(mp.y / (Screen.height / 3));
 
-        var vx = Vector3.zero;
-        var vy = Vector3.zero;
+        var x = Input.GetAxis("Horizontal");
+        var y = Input.GetAxis("Vertical");
+        var v = new Vector3(x, 0, y);
+
         var vz = Vector3.zero;
-        switch(x)
+
+        var jp = Input.GetAxis("Fire1");
+
+        if (jp > 0)
         {
-            case 0:
-            vx = new Vector3(-1f, 0f, 0f);
-            break;
-            case 2:
-            vx = new Vector3(1f, 0f, 0f);
-            break;
+            if (f)
+            {
+                vz = new Vector3(0f, 500f, 0f);
+            }
+            f = false;
         }
-        switch(y)
+        else
         {
-            case 0:
-            vy = new Vector3(0f, 0f, -1f);
-            break;
-            case 2:
-            vy = new Vector3(0f, 0f, 1f);
-            break;
+            f = true;
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            vz = new Vector3(0f, 500f, 0f);
-        }
-        rb.AddForce(vx + vy + vz);
+        rb.AddForce(v + vz);
     }
 }
