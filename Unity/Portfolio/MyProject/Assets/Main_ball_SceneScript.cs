@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Main_ball_SceneScript : MonoBehaviour
 {
-    bool f = true;
-    Vector3 cv = new Vector3(0f, 3f, -15f);
     Rigidbody rb = null;
     void Start()
     {
@@ -15,29 +13,30 @@ public class Main_ball_SceneScript : MonoBehaviour
     void Update()
     {
         var sv = transform.position;
-        sv.y = 1f;
-        Camera.main.transform.position = sv + cv;
+        sv += Vector3.forward * -5 + Vector3.up;
 
         var x = Input.GetAxis("Horizontal");
         var y = Input.GetAxis("Vertical");
-        var v = new Vector3(x, 0, y);
+        var xv = Vector3.zero;
+        var yv = Vector3.zero;
 
-        var vz = Vector3.zero;
-
-        var jp = Input.GetAxis("Fire1");
-
-        if (jp > 0)
+        if (x > 0)
         {
-            if (f)
-            {
-                vz = new Vector3(0f, 500f, 0f);
-            }
-            f = false;
+            xv = Camera.main.transform.up;
         }
-        else
+        if (x < 0)
         {
-            f = true;
+            xv = Camera.main.transform.up * -1;
         }
-        rb.AddForce(v + vz);
+        if (y > 0)
+        {
+            yv = Camera.main.transform.forward;
+        }
+        if (y < 0)
+        {
+            yv = Camera.main.transform.forward * -1;
+        }
+        Camera.main.transform.position += yv / 100;
+        Camera.main.transform.Rotate(xv / 10);
     }
 }
