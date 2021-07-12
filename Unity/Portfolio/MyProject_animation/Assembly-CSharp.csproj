@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\AllSkyFree\AllSkyFree_Menu.cs" />
      <Compile Include="Assets\AnimSceneScript.cs" />
+     <Compile Include="Assets\AnimSpherePlayableBehaviour.cs" />
      <None Include="Assets\AllSkyFree\AllSkyFree_Readme.txt" />
      <None Include="Assets\QS\QS-Textures-Grass-v1\Documentation\Readme.txt" />
     <Reference Include="UnityEngine">
