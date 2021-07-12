@@ -129,4 +129,30 @@ public class OtherData : MonoBehaviour
             halo.enabled = false;
         }
     }
+
+    //**paramのGet/Set
+    public Dictionary<string, int> GetParam()
+    {
+        return param;
+    }
+    public void SetParam(Dictionary<string, int> p)
+    {
+        param = p;
+    }
+
+    //** dvのGet/Set
+    public float GetDv()
+    {
+        return dv;
+    }
+    public void SetDv(float d)
+    {
+        dv = d;
+    }
+
+    //** GameDataによる更新
+    public void UpdateFromGameData()
+    {
+        GetComponent<Renderer>().material.color = levelColor[param["level"]];
+    }
 }
