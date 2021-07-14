@@ -44,3 +44,11 @@ The following packages were 追加済:
   com.unity.textmeshpro@3.0.6
   com.unity.timeline@1.4.8
   com.unity.ugui@1.0.0
+
+=== Thu Jul 15 03:07:47 2021
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were 更新済:
+  com.unity.test-framework をバージョン 1.1.26 から 1.1.27 へ
