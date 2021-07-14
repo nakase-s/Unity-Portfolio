@@ -5,6 +5,7 @@ using UnityEngine;
 public class HumanoidScript : MonoBehaviour
 {
     Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,49 +15,49 @@ public class HumanoidScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Speed", 0f);
-        animator.SetFloat("Direction", 0f);
-        animator.SetBool("Jump", false);
-        animator.SetBool("Rest", false);
+        var b = animator.GetFloat("Blend");
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        // しゃがむ
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            animator.SetFloat("Speed", 0.2f);
+            animator.SetBool("sit", true);
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKeyUp(KeyCode.S))
         {
-            animator.SetFloat("Speed", -0.2f);
+            animator.SetBool("sit", false);
         }
-        if (Input.GetKey(KeyCode.LeftShift))
+        
+        // ジャンプ
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            var s = animator.GetFloat("Speed");
-            animator.SetFloat("Speed", s * 3);
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            var d = animator.GetFloat("Direction");
-            animator.SetFloat("Direction", 0.2f);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            var d = animator.GetFloat("Direction");
-            animator.SetFloat("Direction", -0.2f);
-        }
-        if (Input.GetKey(KeyCode.Space))
-        {
-            if (animator.GetFloat("Speed") == 0f)
-            {
-                animator.SetBool("Rest", true);
-            }
-            else
-            {
-                animator.SetBool("Jump", true);
-            }
+            GetComponent<Rigidbody>().AddForce(Vector3.up * 1000);
+            animator.SetBool("jump", true);
         }
 
-        var fwd = Vector3.forward * animator.GetFloat("Speed");
-        transform.Translate(fwd / 25);
-        var drct = animator.GetFloat("Direction");
-        transform.Rotate(0, drct, 0);
+        // 歩く⇔走る
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetBool("walk", !animator.GetBool("walk"));
+        }
+        if (animator.GetBool("walk"))
+        {
+            if (Input.GetKeyDown(KeyCode.RightShift))
+            {
+                b += 0.1f;
+            }
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                b -= 0.1f;
+            }
+            animator.SetFloat("Blend", b);
+        }
+        
+        if (animator.GetBool("walk"))
+        {
+            var p = transform.position;
+            var d = 1.0f + b * 3;
+            p += transform.forward * (d / 100);
+            transform.position = p;
+        }
     }
 }
