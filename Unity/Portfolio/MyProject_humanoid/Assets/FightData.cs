@@ -28,8 +28,8 @@ public class FightData : ScriptableObject
         };
 
     // それぞれのパワー
-    int kyle_power = 100;
-    int box_power = 100;
+    public int kyle_power = 100;
+    public int box_power = 100;
 
     public void Init()
     {

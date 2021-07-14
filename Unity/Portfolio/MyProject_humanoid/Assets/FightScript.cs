@@ -14,6 +14,8 @@ public class FightScript : MonoBehaviour
 {
     public FightData fdata;
     Text message;
+    Text kyle_power;
+    Text box_power;
     GameObject enemy;
     Animator animator;
     float wd = 0.01f;
@@ -26,6 +28,9 @@ public class FightScript : MonoBehaviour
         fdata.Init();
         animator = GetComponent<Animator>();
         message = GameObject.Find("Text").GetComponent<Text>();
+        kyle_power = GameObject.Find("KylePower").GetComponent<Text>();
+        box_power = GameObject.Find("BoxUnityPower").GetComponent<Text>();
+
         var list = GameObject.FindGameObjectsWithTag("Player");
         if (list[0] == gameObject)
         {
@@ -56,6 +61,10 @@ public class FightScript : MonoBehaviour
     void Update()
     {
         if (fdata.IsEnd()){ return; }
+
+        kyle_power.text = "Kyle: " + fdata.kyle_power;
+        box_power.text = "BoxUnity: " + fdata.box_power;
+
         if (Input.GetKeyDown(kmap["forward"]))
         {
             animator.SetBool("walk", true);
@@ -185,5 +194,14 @@ public class FightScript : MonoBehaviour
             animator.SetBool("loss", true);
         }
         message.text = fdata.Win() + " WIN!!";
+
+                if (fdata.kyle_power <= 0 && fdata.box_power > 0)
+        {
+            kyle_power.text = "Kyle: " + 0;
+        }
+        if (fdata.box_power <= 0 && fdata.kyle_power > 0)
+        {
+            box_power.text = "BoxUnity: " + 0;
+        }
     }
 }
