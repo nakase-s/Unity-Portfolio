@@ -14,6 +14,9 @@ public class MultiFightPun2Script : MonoBehaviourPunCallbacks
     bool flag;
     public Text message;
     public Text nickname;
+    public Text Power;
+    public Text EnemyNickname;
+    public Text EnemyPower;
 
     public bool IsFlag()
     {
@@ -134,6 +137,18 @@ public class MultiFightPun2Script : MonoBehaviourPunCallbacks
         }
     }
 
+    // 自分のパワー, 敵の名前, パワーを表示
+    public void RealtimeGui()
+    {
+        if (PhotonNetwork.LocalPlayer == null){ return; }
+        if (enemyPlayer == null){ return; }
+        EnemyNickname.text = enemyPlayer.NickName;
+        Power.text = "" + PhotonNetwork.LocalPlayer
+            .CustomProperties["power"];
+        EnemyPower.text = "" + enemyPlayer
+            .CustomProperties["power"];
+    }
+
     // 終了のチェックと処理
     public void check()
     {
@@ -149,6 +164,7 @@ public class MultiFightPun2Script : MonoBehaviourPunCallbacks
                 .SetBool("loss", true);
             message.text = enemyPlayer.NickName + 
                 " is WIN!!";
+            Power.text = "" + 0;
             flag = false;
             player.GetComponent<MultiFightScript>()
                 .SetFlag(false);
@@ -159,6 +175,7 @@ public class MultiFightPun2Script : MonoBehaviourPunCallbacks
                 .SetBool("win", true);
             message.text = PhotonNetwork.LocalPlayer
                 .NickName + " is WIN!!";
+            EnemyPower.text = "" + 0;
             flag = false;
             player.GetComponent<MultiFightScript>()
                 .SetFlag(false);

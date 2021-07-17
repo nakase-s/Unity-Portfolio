@@ -103,6 +103,7 @@ public class MultiFightScript : MonoBehaviour
         {
             transform.LookAt(pun2Script.GetEnemy().transform);
         }
+        pun2Script.RealtimeGui();
     }
 
     // 衝突時の処理
@@ -141,10 +142,11 @@ public class MultiFightScript : MonoBehaviour
     // ハローの消去
     void AllOffHalo()
     {
-        foreach(var ob in GameObject.FindGameObjectsWithTag("Collider"))
-        {
-            var halo = (Behaviour)ob.GetComponent("Halo");
-            halo.enabled = false;
-        }
+        var halo = (Behaviour)GameObject.Find("kyle punch")
+                .GetComponent("Halo");
+        halo.enabled = false;
+        halo = (Behaviour)GameObject.Find("kyle kick")
+                .GetComponent("Halo");
+        halo.enabled = false;
     }
 }

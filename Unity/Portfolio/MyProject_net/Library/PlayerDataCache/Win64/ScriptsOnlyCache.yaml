@@ -38,12 +38,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateEditor
-    - UnityEditor.Graphs.AnimationStateMachine.StateMachineBehaviourEditor
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -121,51 +117,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1946}
     - Class: 114
-      Script: {instanceID: 2212}
+      Script: {instanceID: 2214}
     - Class: 114
-      Script: {instanceID: 2328}
+      Script: {instanceID: 2330}
     - Class: 114
-      Script: {instanceID: 2384}
+      Script: {instanceID: 2386}
     - Class: 114
-      Script: {instanceID: 2598}
+      Script: {instanceID: 2600}
     - Class: 114
-      Script: {instanceID: 2718}
+      Script: {instanceID: 2720}
     - Class: 114
-      Script: {instanceID: 2904}
+      Script: {instanceID: 2906}
     - Class: 114
-      Script: {instanceID: 2952}
+      Script: {instanceID: 2954}
     - Class: 114
-      Script: {instanceID: 3120}
-    - Class: 114
-      Script: {instanceID: 3128}
+      Script: {instanceID: 3122}
     - Class: 114
       Script: {instanceID: 3130}
     - Class: 114
-      Script: {instanceID: 3232}
+      Script: {instanceID: 3132}
     - Class: 114
-      Script: {instanceID: 3704}
+      Script: {instanceID: 3234}
     - Class: 114
-      Script: {instanceID: 4040}
+      Script: {instanceID: 3706}
+    - Class: 114
+      Script: {instanceID: 3804}
     - Class: 114
       Script: {instanceID: 4044}
     - Class: 114
-      Script: {instanceID: 4230}
+      Script: {instanceID: 4048}
     - Class: 114
-      Script: {instanceID: 4276}
+      Script: {instanceID: 4234}
     - Class: 114
-      Script: {instanceID: 4388}
+      Script: {instanceID: 4280}
     - Class: 114
-      Script: {instanceID: 4694}
+      Script: {instanceID: 4392}
     - Class: 114
-      Script: {instanceID: 4696}
+      Script: {instanceID: 4698}
     - Class: 114
-      Script: {instanceID: 4724}
+      Script: {instanceID: 4700}
     - Class: 114
-      Script: {instanceID: 4862}
+      Script: {instanceID: 4728}
     - Class: 114
-      Script: {instanceID: 5202}
+      Script: {instanceID: 4866}
     - Class: 114
-      Script: {instanceID: 28214}
+      Script: {instanceID: 5206}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 122
@@ -481,6 +477,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: GroupTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HumanoidPose
   - hash:
       serializedVersion: 2
       Hash: 800c50acba124432abb4cf0d47202e06
@@ -1143,6 +1145,12 @@ ScriptsOnlyBuild:
     className: ToDemoHubButton
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FightPose
+  - hash:
+      serializedVersion: 2
       Hash: d9aa52c5a283a9b8a790e55c0dee9ccf
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -1545,7 +1553,7 @@ ScriptsOnlyBuild:
     className: TextToggleIsOnTransition
   - hash:
       serializedVersion: 2
-      Hash: dee9ab4509f9bc2fdbd45af6ef63632e
+      Hash: eb5e28164f4bc04410936725982da17f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MultiFightPun2Script
@@ -1741,18 +1749,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Postprocessing.Runtime.dll
     namespaceName: UnityEngine.Rendering.PostProcessing
     className: AmbientOcclusion
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: HumanoidPose
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FightPose
   platform: 19
   scenePathNames:
   - Assets/Scenes/MultiFightScene.unity
