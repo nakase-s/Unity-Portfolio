@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 enum Attack
 {
@@ -9,10 +10,13 @@ enum Attack
     Kick
 }
 
-public class MultiFightScript : MonoBehaviour
+public class MultiFightScript : MonoBehaviour, IPunObservable
 {
     MultiFightPun2Script pun2Script;
     Animator animator;
+    Transform m_Body;
+    Vector3 networkPosition;
+    Quaternion networkRotation;
     bool flag = false;
     float wd = 0.01f;
     Attack attack = Attack.None;
@@ -103,6 +107,14 @@ public class MultiFightScript : MonoBehaviour
         {
             transform.LookAt(pun2Script.GetEnemy().transform);
         }
+        var pView = GetComponent<PhotonView>();
+        if (!pView.IsMine)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, 
+                networkPosition, Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, 
+                networkRotation, Time.deltaTime * 100f);
+        }
         pun2Script.RealtimeGui();
     }
 
@@ -148,5 +160,41 @@ public class MultiFightScript : MonoBehaviour
         halo = (Behaviour)GameObject.Find("kyle kick")
                 .GetComponent("Halo");
         halo.enabled = false;
+    }
+
+    // オブジェクトのアップデート
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        var rigidbody = GetComponent<Rigidbody>();
+        if (stream.IsWriting)
+        {
+            stream.SendNext(rigidbody.position);
+            stream.SendNext(rigidbody.rotation);
+            stream.SendNext(rigidbody.velocity);
+        }
+        else
+        {
+            networkPosition = (Vector3) stream.ReceiveNext();
+            networkRotation = (Quaternion) stream.ReceiveNext();
+            GetComponent<Rigidbody>().velocity = (Vector3) stream.ReceiveNext();
+
+            float lag = Mathf.Abs((float) (PhotonNetwork.Time - info.timestamp));
+            networkPosition += (rigidbody.velocity * lag);
+        }
+    }
+
+    // 表示位置を更新
+    public void FixedUpdate()
+    {
+        var photonView = GetComponent<PhotonView>();
+        if (!photonView.IsMine)
+        {
+            GetComponent<Rigidbody>().position = 
+                Vector3.MoveTowards(GetComponent<Rigidbody>().position, 
+                    networkPosition, Time.fixedDeltaTime);
+            GetComponent<Rigidbody>().rotation = 
+                Quaternion.RotateTowards(GetComponent<Rigidbody>().rotation,
+                    networkRotation, Time.fixedDeltaTime * 100.0f);
+        }
     }
 }

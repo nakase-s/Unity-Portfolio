@@ -14,6 +14,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
+    PhotonUnityNetworking.Utilities.dll:
+    - Photon.Pun.UtilityScripts.PhotonStatsGui
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -152,6 +154,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 4280}
     - Class: 114
       Script: {instanceID: 4392}
+    - Class: 114
+      Script: {instanceID: 4508}
     - Class: 114
       Script: {instanceID: 4698}
     - Class: 114
